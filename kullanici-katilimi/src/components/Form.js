@@ -1,19 +1,20 @@
 import React from "react";
 
 const Form = (props) => {
-  const { handlechange, submitDisable, handleSubmit } = props;
+  const { handleChange, submitDisable, handleSubmit } = props;
   const { name, email, password, terms } = props.member;
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form data-cy="test-submit" onSubmit={handleSubmit}>
         <label htmlFor="name">
           İsim Soyisim:
           <input
             id="name"
             name="name"
-            onChange={handlechange}
+            onChange={handleChange}
             value={name}
             type="text"
+            data-cy="test-name"
           />
         </label>
         <label htmlFor="email">
@@ -21,9 +22,10 @@ const Form = (props) => {
           <input
             id="email"
             name="email"
-            onChange={handlechange}
+            onChange={handleChange}
             value={email}
             type="email"
+            data-cy="test-email"
           />
         </label>
         <label htmlFor="password">
@@ -31,22 +33,29 @@ const Form = (props) => {
           <input
             id="password"
             name="password"
-            onChange={handlechange}
+            onChange={handleChange}
             value={password}
             type="password"
+            data-cy="test-password"
           />
         </label>
         <label htmlFor="terms">
           <input
             id="terms"
             name="terms"
-            onChange={handlechange}
+            onChange={handleChange}
             value={terms}
             type="checkbox"
+            data-cy="test-terms"
           />
           Kullanım şartlarını kabul ediyorum.
         </label>
-        <input type="submit" value="Kaydet" disabled={submitDisable} />
+        <input
+          type="submit"
+          value="Kaydet"
+          disabled={submitDisable}
+          data-cy="test-button"
+        />
       </form>
     </div>
   );
